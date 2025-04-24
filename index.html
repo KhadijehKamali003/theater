@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍿 khadijeh's theater 🎬</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+<h1>📽 KHADIJEH'S THEATER🍿 </h1>
+<video id="Movie" controls>
+    <source src="media/VID_20250424_233210_901.mp4.mkv" type="video/mp4">
+    Your broeser does not support the video tag 
+</video>
+<p id="timeDisplay">Time:2:55</p>
+<div class="buttons">
+    <button onclick="playAgain()">Play Again </button>
+    <button onclick="rateMovie()">Rate Movie</button>
+</div>
+<p class="welcome">welcome to the magical Theater ever </p>
+    </div>
+    <script>
+        const video=document.getElementById('movie');
+        const timeDisplay=document.getElementById('timeDisplay');
+        video.addEventListener('timeupdate',()=>{const minutes=Math.floor(video.currentTime/60);
+            const seconds=Math.floor(video.currentTime %60)
+            .toString()
+            .padStart(2,'0');
+            timeDisplay.textContent='Time:${minutes}:${seconds}'; });
+            function playAgain(){
+                video.currentTime=0;
+                video.play()
+            }
+            function rateMovie(){
+                alert('Thanks for rating our work');
+            }
+    </script>
+</body>
+</html>
